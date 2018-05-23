@@ -1,0 +1,31 @@
+group 'pl.plh.app'
+version '0.0.1-SNAPSHOT'
+
+apply plugin: 'java'
+sourceCompatibility = 1.8
+
+apply plugin: 'application'
+mainClassName = 'pl.plh.app.sudoku.SudokuResolverRunner'
+executableDir = "bin"
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    testCompile('junit:junit:4.12')
+}
+
+def trialDirName = "$buildDir/trial"
+installDist {
+    destinationDir = file(trialDirName)
+}
+
+def extrasDirName = "src/extras"
+applicationDistribution.from("$extrasDirName")
+
+
+
+
+
+
